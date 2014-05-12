@@ -49,13 +49,13 @@ public class IndividuController implements Serializable {
 
     @Inject
     private IndividuFacade individuService;
-    private Individu newIndividu;
+    private Individu newIndividu = new Individu();
     private Individu current;
     private List<Individu> individus;
 
     @Inject
     private CompteFacade compteService;
-    private Compte newCompte;
+    private Compte newCompte = new Compte();
     private Compte compte;
     private boolean sessionOuverte;
 
@@ -155,6 +155,8 @@ public class IndividuController implements Serializable {
         newCompte.setActif(Boolean.FALSE);
         newCompte.setGroupe("candidat");
         
+        System.out.println(newIndividu.getCin());
+        
         //Creation Du compte
         String password = newCompte.getPassword();
         String hashedPassword = Hash.hash(password);
@@ -163,17 +165,24 @@ public class IndividuController implements Serializable {
         newCompte.setPassword(hashedPassword);
         compteService.create(newCompte);
         System.out.println("Compte creer");
+        //Creation de l'individu
+        System.out.println("creation de l individu");
+        
+        individuService.create(newIndividu);        
+        
+        System.out.println("Individu creer !!!!");
+        
+        
         //Generation de la cle d'identification et envoie de mail d'activation
         final String key = UUID.randomUUID().toString();
         System.out.println("La cle generer est " + key);
         SendEmail(newIndividu.getEmail(), key, newIndividu.getCne(), password);        
-//Definition de l'activation
+        //Definition de l'activation
         activation.setActivationKey(key);
         activation.setCompte(newCompte);
         activationService.create(activation);
 
-        //Creation de l'individu
-        individuService.create(newIndividu);
+        
         return "waitValidation?faces-redirect=true";
     }
 
