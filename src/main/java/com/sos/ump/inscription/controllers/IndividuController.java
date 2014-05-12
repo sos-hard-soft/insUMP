@@ -61,7 +61,7 @@ public class IndividuController implements Serializable {
 
     @Inject
     private ActivationFacade activationService;
-    private Activation activation;
+    private Activation activation = new Activation();
 
     private boolean visibled = false;
     private boolean visible = false;
@@ -171,17 +171,16 @@ public class IndividuController implements Serializable {
         individuService.create(newIndividu);        
         
         System.out.println("Individu creer !!!!");
-        
-        
-        //Generation de la cle d'identification et envoie de mail d'activation
+         //Generation de la cle d'identification et envoie de mail d'activation
         final String key = UUID.randomUUID().toString();
-        System.out.println("La cle generer est " + key);
-        SendEmail(newIndividu.getEmail(), key, newIndividu.getCne(), password);        
+        System.out.println("La cle generer est " + key); 
         //Definition de l'activation
         activation.setActivationKey(key);
         activation.setCompte(newCompte);
         activationService.create(activation);
-
+        System.out.println("Ajout d'activation !!!");
+        
+        SendEmail(newIndividu.getEmail(), key, newIndividu.getCne(), password);
         
         return "waitValidation?faces-redirect=true";
     }
