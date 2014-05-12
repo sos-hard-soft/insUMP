@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:hx="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:param name="pageTitle" value="Page 1" />
+    <ui:param name="pageSubtitle" value="Page 1" />
+    <ui:define name="body">
+	
+            <div class="row">
+                <h:form>
+        <p:messages for="update"/>
+        <div class="col-lg-7">
+            <p:panel header="Création d'un compte">
+            <p:panelGrid columns="3">
+                <p:outputLabel value="CNE :"/>
+                <p:inputText id="cne" value="#{individuController.newIndividu.cne}"
+                             required="true" requiredMessage="Veuillez saisir votre code national de l'etudiant">
+                    <f:validator validatorId="uniqueCneValidator" />
+                    <f:ajax event="blur" render="verifyCNE"/>
+                </p:inputText>
+                <p:message id="verifyCNE" for="cne"/>
+                
+                <p:outputLabel value="CIN :"/>
+                <p:inputText id="cin" value="#{individuController.newIndividu.cin}"
+                             required="true" requiredMessage="Veuillez saisir votre code didentite nationale !">
+                    <f:validator validatorId="uniqueCinValidator" />
+                    <f:ajax event="blur" render="verifyCIN"/>
+                </p:inputText>
+                <p:message id="verifyCIN" for="cin"/>
+                
+                <p:outputLabel value="Nom :"/>
+                <p:inputText id="nom" value="#{individuController.newIndividu.nom}"
+                             required="true" requiredMessage="Veuillez saisir votre nom"/>
+                <p:message for="nom"/>
+                
+                <p:outputLabel value="Prénom :"/>
+                <p:inputText id="prenom" value="#{individuController.newIndividu.prenom}"
+                             required="true" requiredMessage="Veuillez saisir votre prenom"/>
+                <p:message for="prenom"/>
+                
+                <p:outputLabel value="Date de naissance"/>
+                <p:calendar id="dateNaissance" value="#{individuController.newIndividu.dateNaissance}"
+                                mode="popup" pattern="dd/MM/yyyy"
+                                yearRange="c-100" locale="fr"
+                                showButtonPanel="true" navigator="true"
+                                required="true" requiredMessage="Veuillez selectionnez une Date de naissance" />
+                <p:message for="dateNaissance"/>
+                
+                <p:outputLabel value="email :"/>
+                <p:inputText id="email" value="#{individuController.newIndividu.email}"
+                             required="true" requiredMessage="Veuillez saisir une adresse email valide">
+                    <f:validateRegex
+pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                </p:inputText>
+                <p:message for="email"/>
+                
+            </p:panelGrid>
+                </p:panel>
+<p:panel header="Mot de passe pour le compte">  
+         <p:messages id="pass" showDetail="true" autoUpdate="true"/>
+  
+        <h:panelGrid columns="2" id="matchGrid">                     
+            <h:outputLabel for="pwd1" value="Mot de passe : *" />  
+            <p:password id="pwd1" value="#{individuController.newCompte.password}" match="pwd2" label="Password 1" required="true">
+                <f:validateLength minimum="6" for="pwd1" />                    
+            </p:password>  
+  
+            <h:outputLabel for="pwd2" value="Resaisissez le mot de passe : *" />  
+            <p:password id="pwd2" value="#{individuController.newCompte.password}" label="Password 2" required="true"/>  
+        </h:panelGrid>  
+  
+          
+    </p:panel> 
+        <p:commandButton update="pass" id="saveButton" value="Enregistrez les donnee" action="#{individuController.doCreate}" />
+        </div>
+        
+        <div class="col-lg-5">
+            <p:panel header="Première phase de préinscription">
+            <ul>
+                <li style="color: #46b8da; font-family: georgia;">Repmplir le formulaire munitieusement</li>
+                <li style="color: #D20005; font-family: georgia;">L'adresse email sera utilisée pour vérifier vos données</li>
+                <li style="color: darkorange; font-family: georgia;">Vous receverez un email de validation qui vous permettra d'activer votre compte, si vous ne recevez pas l'email dans la minutes qui suit, veuillez verifier dans le courier indésirable</li>
+                <li style="color: #449d44; font-family: georgia;">Choisissez un mot de passe d'au moins 6 caractères</li>
+            </ul>
+            </p:panel>
+        </div>
+        </h:form>
+        </div>
+</ui:define>
+    </ui:composition>
