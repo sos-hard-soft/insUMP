@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -8,6 +8,7 @@
         <title>#{msg['application.title']}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="css/bootstrap.css" />
+        <h:outputStylesheet name="css/default.css" />
         <style type="text/css">
             body {
                 padding-top: 60px;
@@ -17,9 +18,13 @@
     </h:head>
 
     <h:body>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
+        <div class="container">
+             
+                <div class="col-md-4">
+                    <h:graphicImage name="img/logo.png" class="img-responsive"/>
+                </div>
+                <div class="navbar navbar-inverse spacing-top">
+                <div class="navbar-inner ">
                 <div class="container">
                     <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
@@ -29,14 +34,20 @@
                     <a class="brand" href="#">#{msg['application.title']}</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="#{view.viewId == '/index.xhtml' ? 'active' : ''}"><h:link outcome="/index" value="Home" /></li>
-                            <li class="#{view.viewId == '/pages/page1.xhtml' ? 'active' : ''}"><h:link outcome="/pages/page1" value="Page 1" /></li>
-                            <li class="#{view.viewId == '/pages/page2.xhtml' ? 'active' : ''}"><h:link outcome="/pages/page2" value="Page 2" /></li>
+                            <li class=""><a href="http://www.fso.ump.ma" >Accueil</a></li>
+                            <li class=""><a href="http://www.fso.ump.ma/faculte">Faculte</a></li>
+                            <li class=""><a href="http://www.fso.ump.ma/formation" >Formations</a></li>
+                            <li class=""><a href="http://www.fso.ump.ma/recherche" >Recherche</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
+        </div>    
         </div>
+        
+        
+                
+            
 
         <div class="container">
             <h4>#{pageTitle} <small>#{pageSubtitle}</small></h4>

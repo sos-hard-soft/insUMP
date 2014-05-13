@@ -1,0 +1,54 @@
+body {
+    background-image: url(/insUMP/javax.faces.resource/img/bg.png.xhtml);
+    /*background-color: #ffffff;*/
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+.spacing-bottom {
+    padding-bottom: 15px;
+}
+
+.spacing-top {
+    padding-top: 15px;
+}
+
+.rtl {
+    text-align: right;
+    direction:rtl;
+}
+
+.col-md-3-rtl {
+    width: 25%;
+    direction:rtl;
+    text-align: right;
+    float: right;
+    position: relative;
+min-height: 1px;
+padding-right: 15px;
+padding-left: 15px;
+  }

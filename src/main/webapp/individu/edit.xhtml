@@ -1,123 +1,133 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <h1>Liste des cadres</h1>
-    </h:head>
-    <h:body>
-        <ui:composition template="../resources/template.xhtml">
-            <ui:define name="left">
-            <ui:insert name="header" >
-                <ui:include src="menuEtudiant.xhtml" />
-            </ui:insert>
-            </ui:define>
-            <ui:define name="content">
-                <h:form>
-                <div></div>
-                <p:panel id="error" rendered="#{etudiantController.sessionOuverte}">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:hx="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="body">
+        <ui:insert name="sidebar" >
+            <ui:include src="menuEtudiant.xhtml" />
+        </ui:insert>
+        <ui:insert name="content" >
+            <h:form>
+                <p:panel id="error" rendered="#{individuController.sessionOuverte}">
                     Votre session a éxpirer ou vous n'avez pas activer votre compte.
                 </p:panel>
 
-                <p:panel id="etudiantdetail" header="Modification des Informations personelle" rendered="#{!etudiantController.sessionOuverte}">
-
+                <p:panel id="etudiantDetail" header="Modification des Informations personelle" rendered="#{!individuController.sessionOuverte}">
                     <p:messages for="update"/>
-
-                    <p:panelGrid columns="3">
-                        <p:outputLabel value="CNE : "/>
-                        <p:outputLabel id="cne" value="#{etudiantController.current.cne}"
+                    <div class="row spacing-bottom">
+                        <div class="col-md-3">
+                            <p:outputLabel value="CNE : "/>
+                        </div>
+                        <div class="col-md-3">
+                            <p:outputLabel id="cne" value="#{individuController.current.cne}"
                              />
-                    <p:message for="cne"/>
+                        </div>
+                        <div class="col-md-3">
+                            <p:outputLabel value="CIN : "/>
+                        </div>
+                        <div class="col-md-3">
+                            <p:outputLabel id="cin" value="#{individuController.current.cin}" />
+                        </div>
+                    </div>
                 
-                        <p:outputLabel value="CIN : "/>
-                        <p:outputLabel id="cin" value="#{etudiantController.current.cin}" />
-                   
-                <p:message for="cin"/>
-
+                    <div class="panel panel-primary spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information Personnelle En Francais</h3>
+                        </div>
+                            <div class="row spacing-top  spacing-bottom">
+                        <div class="col-md-2"><p:outputLabel  value="Nom   :*"/></div>
+                        <div class="col-md-3"><p:inputText id="nom" value="#{individuController.current.nom}"
+                             required="true" requiredMessage="Veuillez saisir votre nom"/></div>
+                        <div class="col-md-3"><p:message for="nom"/></div>
+                </div>
+                            <div class="row spacing-bottom">
+                        <div class="col-md-2"><p:outputLabel  value="Prenom   :*"/></div>
+                        <div class="col-md-3"><p:inputText id="prenom" value="#{individuController.current.prenom}"
+                             required="true" requiredMessage="Veuillez saisir votre prenom"/></div>
+                        <div class="col-md-3"><p:message for="prenom"/></div>
+                 </div>
+                            <div class="row spacing-bottom">
+                        <div class="col-md-2"><p:outputLabel  value="Ville natale   :*"/></div>
+                        <div class="col-md-3"><p:inputText id="villeNaissance" value="#{individuController.current.villeNaissance}"
+                             required="true" requiredMessage="Veuillez saisir le nom de votre ville natale"/></div>
+                        <div class="col-md-3"><p:message for="villeNaissance"/></div>
+                    </div>
+                 
+                   </div>
                         
+                    <div class="panel panel-success spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title rtl">المعلومات باللغة العربية</h3>
+                        </div>
                         
-                        <p:outputLabel  value="Nom : *"/>
-                <p:inputText id="nom" value="#{etudiantController.current.nom}"
-                             required="true" requiredMessage="Veuillez saisir votre nom"/>
-                <p:message for="nom"/>
-                
-                <p:outputLabel value="Prénom : *"/>
-                <p:inputText id="prenom" value="#{etudiantController.current.prenom}"
-                             required="true" requiredMessage="Veuillez saisir votre prenom"/>
-                <p:message for="prenom"/>
-                
-                <p:outputLabel value="Date de naissance : *"/>
-                <p:calendar id="dateNaissance" value="#{etudiantController.current.dateNaissance}"
-                                mode="popup" pattern="dd/MM/yyyy"
+                     <div align="right" class="row spacing-bottom rtl">
+                         <div class="col-md-3-rtl"><p:outputLabel value="الاسم العائلي :*"/></div>
+                        <div class="col-md-3-rtl"><p:inputText id="nomAr" value="#{individuController.current.nomAr}"
+                             required="true" requiredMessage="رجاءا املئو الخانة باسمكم العائلى"/></div>
+                        <div class="col-md-3-rtl"><p:message for="nomAr"/></div>
+                 </div>
+             <div align="right" class="row spacing-bottom rtl">
+                        <div class="col-md-3-rtl"><p:outputLabel value="الاسم الشخصي  :*"/></div>
+                        <div class="col-md-3-rtl"><p:inputText id="prenomAr" value="#{individuController.current.nomAr}"
+                             required="true" requiredMessage="رجاءا املئو الخانة باسمكم الشخصي"/></div>
+                        <div class="col-md-3-rtl"><p:message for="prenomAr"/></div>
+                        </div>
+                        <div class="row spacing-bottom rtl">
+                        <div class="col-md-3-rtl"><p:outputLabel  value="مدينة الازدياد :*"/></div>
+                        <div class="col-md-3-rtl"><p:inputText id="villeNaissanceAr" value="#{individuController.current.villeNaissanceAr}"
+                             required="true" requiredMessage="رجاءا املئو الخانة باسم مدينة الازدياد"/></div>
+                        <div class="col-md-3-rtl"><p:message for="villeNaissanceAr"/></div>
+                        </div>
+                    </div>
+             
+                    
+                    <div class="row spacing-bottom">
+                        <div class="col-md-3"><p:outputLabel value="Date de naissance : *"/></div>
+                        <div class="col-md-3"><p:calendar id="dateNaissance" value="#{individuController.current.dateNaissance}"
+                                showOn="button" pattern="dd/MM/yyyy"
                                 yearRange="c-100" locale="fr"
                                 showButtonPanel="true" navigator="true"
                                 required="true" requiredMessage="Veuillez selectionnez une Date de naissance" />
-                <p:message for="dateNaissance"/>
-                
-                <p:outputLabel value="email : *"/>
-                <p:inputText id="email" value="#{etudiantController.current.email}"
-                             required="true" requiredMessage="Veuillez saisir une adresse email valide">
-                    <f:validateRegex
-pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-                </p:inputText>
-                <p:message for="email"/>
-                
-                <p:outputLabel value="Lieu de naissance :"/>
-                <p:inputText id="lieuNaissance" value="#{etudiantController.current.lieuNaissance}"
-                             />
-                <p:message for="lieuNaissance"/>
-                
-                <p:outputLabel value="Nationalité :"/>
-                <p:inputText id="nationalite" value="#{etudiantController.current.nationalite}"
-                             />
-                <p:message for="nationalite"/>
-                
-                <p:outputLabel value="sexe :"/>
-                <p:selectOneRadio id="sexe" value="#{etudiantController.current.sexe}">
-                    <f:selectItem itemLabel="Masculin" itemValue="true"/>
-                    <f:selectItem itemLabel="Féminin" itemValue="false"/>
+                </div>
+                        <div class="col-md-3"><p:message for="dateNaissance"/></div>
+                    </div>
+                            <div class="row spacing-bottom">
+                        <div class="col-md-3"><p:outputLabel value="sexe :"/></div>
+                        <div class="col-md-3"><p:selectOneRadio id="sexe" value="#{individuController.current.sex}">
+                    <f:selectItem itemLabel="Masculin" itemValue="1"/>
+                    <f:selectItem itemLabel="Féminin" itemValue="0"/>
                 </p:selectOneRadio>
-                <p:message for="lieuNaissance"/>
-                
-                
-                <p:outputLabel value="Etat matrimonial :"/>
-                <p:selectOneRadio id="etatMatrimonial" value="#{etudiantController.current.etatMatrimonial}">
-                    <f:selectItem itemLabel="Célibataire" itemValue="true"/>
-                    <f:selectItem itemLabel="Marié(e)" itemValue="false"/>
-                </p:selectOneRadio>
-                <p:message for="lieuNaissance"/>
-                
-                <p:outputLabel value="Fonctionaire :"/>
-                <p:selectOneRadio id="activite" value="#{etudiantController.current.activite}">
-                    <f:selectItem itemLabel="Oui" itemValue="true"/>
-                    <f:selectItem itemLabel="Non" itemValue="false"/>
-                </p:selectOneRadio>
-                <p:message for="lieuNaissance"/>
-                
-                <p:outputLabel value="Adresse de corespondance :"/>
-                <p:inputTextarea rows="6" cols="50" id="adresse" value="#{etudiantController.current.adresse}"
+                </div>
+                        <div class="col-md-3"><p:message for="sexe"/></div>
+                    </div>
+                            <div class="row spacing-bottom">
+                        <div class="col-md-2"><p:outputLabel value="Adresse :"/></div>
+                        <div class="col-md-5"><p:inputTextarea rows="6" cols="50" id="adresse" value="#{individuController.current.adresse}"
                              />
-                <p:message for="lieuNaissance"/>
-                <p:outputLabel value="Numéro de téléphonne :"/>
-                <p:inputText id="telephonne" value="#{etudiantController.current.numeroTelephonne}"
-                             />
-                <p:message for="lieuNaissance"/>
-                    </p:panelGrid>
-<h:commandButton value="Enregistrer les Modification" action="#{etudiantController.doEdit}"/>
-
-
+                </div>
+                        <div class="col-md-2"><p:message for="adresse"/></div>
+                    </div>
+                            <div class="row spacing-bottom">
+                        <div class="col-md-2"><p:outputLabel  value="Ville  :*"/></div>
+                        <div class="col-md-3"><p:inputText id="ville" value="#{individuController.current.ville}"
+                             required="true" requiredMessage="Veuillez saisir le nom de votre ville de corespondance"/></div>
+                        <div class="col-md-3"><p:message for="ville"/></div>
+                    </div>
+                            <div class="row spacing-bottom">
+                        <div class="col-md-2"><p:outputLabel  value="Pays  :*"/></div>
+                        <div class="col-md-3"><p:inputText id="pays" value="#{individuController.current.pays}"
+                             required="true" requiredMessage="Veuillez saisir le nom de votre pays de corespondance"/></div>
+                        <div class="col-md-3"><p:message for="pays"/></div>
+                    </div>
                 </p:panel>
+            </h:form>
+        </ui:insert>        
 
-                </h:form>
-
-            </ui:define>
-        </ui:composition>
-    </h:body>
-</html>
+    </ui:define>
+</ui:composition>

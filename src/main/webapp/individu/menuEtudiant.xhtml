@@ -15,24 +15,17 @@ and open the template in the editor.
     <h:body>
         <ui:composition>
             <h:form>
-            <p:commandButton rendered="#{etudiantController.compte.actif}"
+            <p:commandButton rendered="#{individuController.compte.actif}"
                              icon="ui-icon-locked" style="background-image: -moz-linear-gradient(center top , #FE6B25, #FE6B25);" value="Fermer votre session" action="#{loginController.doLogout}"/>
                <p:menu>  
         <p:submenu label="Detail Etudiant">  
-            <p:menuitem value="Afficher détail" action="#{etudiantController.showLoggedDetails}" icon="ui-icon-search" />  
-            <p:menuitem value="Editer Infos" action="#{etudiantController.showEdit}" icon="ui-icon-arrowrefresh-1-w"/>
+            <p:menuitem value="Afficher détail" action="#{individuController.showLoggedDetails}" icon="ui-icon-search" />  
+            <p:menuitem value="Editer Infos" action="#{individuController.showEdit}" icon="ui-icon-arrowrefresh-1-w"/>
                 
             
-        </p:submenu>  
-        <p:submenu label="Ajouter des qualification">  
-            <p:menuitem value="Ajouter un diplome" action="#{etudiantController.showAddQualification}" icon="ui-icon-plus"/>  
-        </p:submenu>
-        <p:submenu label="Gerer la candidature">  
-            <p:menuitem value="Choisir la formation Doctorale" action="#{etudiantController.showAddChoice}" icon="ui-icon-plus"/>  
-            <p:menuitem value="Ajouter Choix de sujet" disabled="true" action="#{etudiantController.showAddChoice}" icon="ui-icon-plus"/>  
-        </p:submenu>
+        </p:submenu> 
         <p:submenu label="formulaire de candidature">  
-            <p:menuitem value="Imprimer le formulaire" disabled="false" action="#{etudiantController.showPrint}" target="_blank" icon="ui-icon-print"/>  
+            <p:menuitem value="Imprimer le formulaire" disabled="false" action="#{individuController.showPrint}" target="_blank" icon="ui-icon-print"/>  
         </p:submenu>
     </p:menu>
 </h:form>
