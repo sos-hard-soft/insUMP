@@ -1,107 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:h="http://java.sun.com/jsf/html">
-    <h:head>
-        <title>Login Form</title>
-        <h:outputStylesheet name="css/bootstrap.min.css" />
-        <style type="text/css">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:hx="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml"
+                xmlns:p="http://primefaces.org/ui">
 
-            .sidebar-nav {
-                padding: 9px 0;
-            }
-            h3{font-size: 12px}
+    <ui:define name="body">
 
-            .ui-widget, .ui-widget .ui-widget {
-                font-size: 90% !important;
-            }
-            .body-content tr, .body-content td {
-                border: none;
-            }
-            #logoump{
-                float: left;
-            }
-            #logofso{
-                float: right;
-            }
-            #paroles{
-                float: left;
-                margin-left: 100px;
-            }
-            #print{
-                text-align: center;
-                background-color: darkorange;
-                height: 35px;
-            }
-            
-            #form{
-                text-align: center;
-                background-color: #fff;
-         
-        -webkit-border-radius: 10px 10px 10px 10px;
-           -moz-border-radius: 10px 10px 10px 10px;
-                border-radius: 10px 10px 10px 10px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                box-shadow: 0 1px 2px rgba(0,0,0,.15);
-            }
-            .footer {
-    background-color: #99CC00;
-    clear: both;
-    margin-top: 15px;
-   margin-left: -23px;
-    margin-right: -23px;
-    color: #FFFFFF;
-    min-height: 20px;
-    text-align: center;
-}
-        </style>
-    </h:head>
-    <h:body>
-
-        <div class="container">
-            <div class="row">
-                <div id="logoump" class="col-2"><h:graphicImage name="images/umpLogo.png" class="img-responsive"/></div>
-
-                <div id="paroles">
-                    <p style="text-align: center; background-color: ">جامعة محمد الأول وجدة<br/>
-                        Universite Mohamed Premier - Oujda <br/>مركز دراسـات الدكتـوراة علـوم و تقنيـات<br/>Centre d'etudes doctorales sciences et techniques</p>
-                </div>
-                <div id="logofso" class="col-lg-2" style="text-align: right;">
-                    <h:graphicImage name="images/logo.png" class="img-responsive"/>
-                </div>
-            </div>
-            <hr/>
-            <div class="row" style="text-align: center; background-color: #1A96D4; height: 40px;">
-                <h4 style="color: #ffffff; font-family: cursive;">Formulaire de connexion</h4>
-            </div>
-            <hr/>
+        
+            <!--login modal-->
+            <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h1 class="text-center">Se Connecter</h1>
+                        </div>
 
 
-            <div class="row">
-                <div class="col-lg-6 col-offset-3" id="form">
-                <form action="j_security_check" method="post">
-                    <h:outputLabel for="j_username" value="Username" />
-                    <h:inputText id="j_username" />
-                    <br />
-                    <h:outputLabel for="j_password" value="Password" />
-                    <h:inputSecret id="j_password" />
-                    <br />
-                    <h:commandButton value="Login" />
-                </form>
+
+                        <div class="modal-body">
+                            <form class="form col-md-12 center-block"  action="j_security_check" method="post">
+                                <div class="form-group">
+                                    <h:outputLabel for="j_username" value="Username" />
+
+                                    <h:inputText id="j_username" /> 
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel for="j_password" value="Password" />
+                                    <h:inputSecret id="j_password" />
+                                </div>
+                                <div class="form-group">
+                                    <h:commandButton styleClass="btn btn-primary btn-lg btn-block" value="Login" /></div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="col-md-12">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                            </div>	
+                        </div>
                     </div>
+                </div>
             </div>
-
-
-       <div id="bottom" class="row footer">
-            © Faculte des sciences - UMP - Oujda
-        </div>
-        </div>
-
-    </h:body>
-</html>
+            
+    </ui:define>
+</ui:composition>

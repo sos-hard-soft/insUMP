@@ -37,6 +37,12 @@ a:link:hover, a:visited:hover  {
     padding-top: 15px;
 }
 
+.spacing-left {
+    padding-left: 15px;
+}
+.spacing-right {
+    padding-right: 15px;
+}
 .rtl {
     text-align: right;
     direction:rtl;

@@ -33,7 +33,7 @@ import javax.mail.internet.MimeMultipart;
 @Named
 @Stateless
 public class MailerBean {
-    @Resource(name="mail/insump")
+    @Resource(name="mail/fsoMailer")
     private Session session;
 
     private static final Logger logger = Logger.getLogger(MailerBean.class.getName());
@@ -45,7 +45,7 @@ public class MailerBean {
      * @return
      */
     @Asynchronous
-    public Future<String> sendVerificationMail(String email, String key,BigInteger cne, String password) {
+    public Future<String> sendVerificationMail(String email, String key,long cne, String password) {
         String status;
         try {
             Message message = new MimeMessage(session);

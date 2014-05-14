@@ -14,12 +14,9 @@
         <h:form>
             
             <div class="col-lg-4 col-offset-2">
-                <p:commandLink action="#{individuController.showLogin}">
-                <h:graphicImage name="images/already.jpg" class="img-responsive"/>
-                <hr />
-                <h4>Déja enregistrer, Ouvrir une session</h4>
-                </p:commandLink>
-             
+                <p:commandLink value="New Etudiant" action="#{individuController.showCreate}" /><br /><br />
+        
+        <p:commandLink value="Deja enregistrer, Ouvrir une session" action="#{individuController.showLogin}"/>
             </div>
             </h:form>
     </ui:define>

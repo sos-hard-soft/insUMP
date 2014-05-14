@@ -51,7 +51,7 @@ public class Compte implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "cne")
-    private BigInteger cne;
+    private long cne;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
@@ -76,7 +76,7 @@ public class Compte implements Serializable {
         this.idCompte = idCompte;
     }
 
-    public Compte(Integer idCompte, BigInteger cne, String email) {
+    public Compte(Integer idCompte, long cne, String email) {
         this.idCompte = idCompte;
         this.cne = cne;
         this.email = email;
@@ -98,11 +98,11 @@ public class Compte implements Serializable {
         this.optimisticLock = optimisticLock;
     }
 
-    public BigInteger getCne() {
+    public long getCne() {
         return cne;
     }
 
-    public void setCne(BigInteger cne) {
+    public void setCne(long cne) {
         this.cne = cne;
     }
 

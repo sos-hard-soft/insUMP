@@ -1,173 +1,218 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <h1>Détail du candidat</h1>
-    </h:head>
-    <h:body>
-        <ui:composition template="../resources/template.xhtml">
-            <ui:define name="left">
-            <ui:insert name="header" >
-                <ui:include src="menuEtudiant.xhtml" />
-            </ui:insert>
-            </ui:define>
-            <ui:define name="content">	
-                <h:form>
-                <div></div>
-                <p:panel id="error" rendered="#{etudiantController.sessionOuverte}">
-                    Votre session a expirer ou vous n'avez pas activer votre compte.
-                </p:panel>
-                <div class="row">
-                    <div class="col-lg-8">
-                <p:panel id="etudiantdetail" rendered="#{!etudiantController.sessionOuverte}">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:hx="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml"
+                xmlns:p="http://primefaces.org/ui">
 
+    <ui:define name="body">
+        <ui:insert name="sidebar" >
+            <ui:include src="menuEtudiant.xhtml" />
+        </ui:insert>
+        <ui:insert name="content" >
+            <h:form>
+                <p:panel id="error" rendered="#{individuController.sessionOuverte}">
+                    Votre session a éxpirer ou vous n'avez pas activer votre compte.
+                </p:panel>
+
+                <p:panel id="etudiantDetail" header="Modification des Informations personelle" rendered="#{!individuController.sessionOuverte}">
                     <p:messages for="update"/>
-<p:panel header="Informations personèlle">
-                    <p:panelGrid columns="2">
-                        <p:outputLabel value="CIN : "/>
-                        <p:outputLabel value="#{etudiantController.current.cin}"/>
-
-                        <p:outputLabel value="CNE : "/>
-                        <p:outputLabel value="#{etudiantController.current.cne}"/>
-                        
-                        <p:outputLabel value="Nom : "/>
-                        <p:outputLabel value="#{etudiantController.current.nom}"/>
-
-                        <p:outputLabel value="Prénom : "/>
-                        <p:outputLabel value="#{etudiantController.current.prenom}"/>
-
-                        <p:outputLabel value="Date de naissance : "/>
-                        <p:outputLabel value="#{etudiantController.current.dateNaissance}"/>
-                        
-                        <p:outputLabel value="Lieu de naissance : "/>
-                        <p:outputLabel value="#{etudiantController.current.lieuNaissance}"/>
-                        
-                        <p:outputLabel value="Nationalité : "/>
-                        <p:outputLabel value="#{etudiantController.current.nationalite}"/>
-                        
-                        <p:outputLabel value="Sexe : "/>
-                        <p:outputLabel value="Masculin" rendered="#{etudiantController.current.sexe}"/>
-                        <p:outputLabel value="Féminin" rendered="#{!etudiantController.current.sexe}"/>
-                        
-                        <p:outputLabel value="Activité : "/>
-                        <p:outputLabel value="Fonctionaire" rendered="#{etudiantController.current.activite}"/>
-                        <p:outputLabel value="Sans Fonction" rendered="#{!etudiantController.current.activite}"/>
-                        
-                        <p:outputLabel value="Etat matrimonial : "/>
-                        <p:outputLabel value="Célibataire" rendered="#{etudiantController.current.etatMatrimonial}"/>
-                        <p:outputLabel value="Mariée" rendered="#{!etudiantController.current.etatMatrimonial}"/>
-                    </p:panelGrid>
-</p:panel>
-                    <p:panel header="Cordonnées de contact">
-                    <p:panelGrid columns="2">
-                        <p:outputLabel value="email : "/>
-                        <p:outputLabel value="#{etudiantController.current.email}"/>
-                        <p:outputLabel value="Adresse : "/>
-                        <p:outputLabel value="#{etudiantController.current.adresse}"/>
-                        <p:outputLabel value="Numéro de téléphonne : "/>
-                        <p:outputLabel value="#{etudiantController.current.numeroTelephonne}"/>
-                    </p:panelGrid>
-                        </p:panel>
-
-
-                </p:panel>
+                    <div class="row spacing-bottom">
+                        <div class="col-md-3">
+                            <p:outputLabel value="CNE : "/>
                         </div>
-                    <div class="col-lg-3">
-                        <p:panel header="Aide">
-                        <p style="color: #46b8da; font-family: georgia;">Vous pouvez à tout moment changer vos informations personnelles, pour cela il vous suffit de cliquer sur le bouton "Editer infos" dans le menu qui apparait à guache de l'écran.</p>
-                        <p style="color: #D20005; font-family: georgia;">N'oubliez pas de saisir vos diplômes obtenus, ces derniers seront présents sur votre formulaire de candidature.</p>
-                        <p style="color: #99CC00; font-family: georgia;">Pour imprimer votre formulaire de candidature appuyez sur le bouton "imprimer le formulaire" dans le menu qui apparait à guache de l'écran.</p>
-                        </p:panel>
+                        <div class="col-md-3">
+                            <p:outputLabel id="cne" value="#{individuController.current.cne}"
+                                           />
+                        </div>
+                        <div class="col-md-3">
+                            <p:outputLabel value="CIN : "/>
+                        </div>
+                        <div class="col-md-3">
+                            <p:outputLabel id="cin" value="#{individuController.current.cin}" />
+                        </div>
                     </div>
-</div>
-                <p:tabView id="tabView">  
 
-                    <p:tab id="tab1" title="Diplomes Obtenus">
+                    <div class="panel panel-primary spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information Personnelle En Francais</h3>
+                        </div>
+                        <div class="row spacing-top  spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Nom   :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="nom" value="#{individuController.current.nom}"
+                                                               /></div>
+                            
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Prenom   :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="prenom" value="#{individuController.current.prenom}"
+                                                               /></div>
+                           
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Ville natale   :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="villeNaissance" value="#{individuController.current.villeNaissance}"
+                                                               /></div>
+                        </div>
+
+                    </div>
+
+                    <div class="panel panel-success spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title rtl">المعلومات باللغة العربية</h3>
+                        </div>
+
+                        <div align="right" class="row spacing-top spacing-bottom rtl spacing-right">
+                            <div class="col-md-3-rtl"><p:outputLabel value="الاسم العائلي :*"/></div>
+                            <div class="col-md-3-rtl"><p:outputLabel id="nomAr" value="#{individuController.current.nomAr}"
+                                                                   /></div>
+                        </div>
+                        <div align="right" class="row spacing-bottom rtl spacing-right">
+                            <div class="col-md-3-rtl"><p:outputLabel value="الاسم الشخصي  :*"/></div>
+                            <div class="col-md-3-rtl"><p:outputLabel id="prenomAr" value="#{individuController.current.nomAr}"
+                                                                   /></div>
+                        </div>
+                        <div class="row spacing-bottom rtl spacing-right">
+                            <div class="col-md-3-rtl"><p:outputLabel  value="مدينة الازدياد :*"/></div>
+                            <div class="col-md-3-rtl"><p:outputLabel id="villeNaissanceAr" value="#{individuController.current.villeNaissanceAr}"
+                                                                  /></div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Informations complementaire en francais</h3>
+                        </div>
+                    <div class="row spacing-top spacing-bottom spacing-left">
+                        <div class="col-md-3"><p:outputLabel value="Date de naissance : *"/></div>
+                        <div class="col-md-3"><p:outputLabel id="dateNaissance" value="#{individuController.current.dateNaissance}"
+                                                           />
+                        </div>
+                    </div> 
+                    <div class="row spacing-bottom spacing-left">
+                        <div class="col-md-3"><p:outputLabel value="sexe :"/></div>
+                        <div class="col-md-3"><p:outputLabel id="sexe" value="#{individuController.current.sex}" />
+                                </div>
+                    </div>
                         
-                        <h:panelGrid columns="2" cellpadding="10">  
-                            <p:dataTable value="#{etudiantController.current.qualificationList}" var="diplome">
-                                <p:column  headerText="Diplome">  
-                                    <h:outputText value="#{diplome.diplome}" />  
-                                </p:column> 
-                                <p:column  headerText="Date d'obtention">  
-                                    <h:outputText value="#{diplome.dateObtention}" >
-                                        <f:convertDateTime pattern="dd.MM.yyyy" />
-                                    </h:outputText>  
-                                </p:column> 
+                        <div class="row spacing-bottom spacing-left">
+                        <div class="col-md-3"><p:outputLabel value="Nationalite :"/></div>
+                        <p:outputLabel id="diplome" value="#{individuController.current.nationalite}"
+                                     />
+                   
+                    </div>
+                    </div>
 
-                                <p:column  headerText="Mention">  
-                                    <h:outputText value="#{diplome.mention}" />  
-                                </p:column> 
-                                <p:column  headerText="Etablissement">  
-                                    <h:outputText value="#{diplome.partieDelivrante}" />  
-                                </p:column>
-                                <p:column style="width:4%" headerText="Actions">  
+                    <div class="panel panel-primary spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information de contact de l'etudiant</h3>
+                        </div>
+                        <div class="row spacing-top spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel value="Adresse :"/></div>
+                            <div class="col-md-5"><p:outputLabel id="adresse" value="#{individuController.current.adresse}"
+                                                                   />
+                            </div>
                             
-                                <p:growl id="messages"/>  
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Ville  :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="ville" value="#{individuController.current.ville}"
+                                                               /></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Pays  :*"/></div>
+                            <div class="col-md-3">
+                                <p:outputLabel id="pays" value="#{individuController.current.pays}"
+                                                               /></div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-danger spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information du Bacaleaureat</h3>
+                        </div>
+                        <div class="row spacing-top spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel value="Baccaleaureat :"/></div>
+                            <div class="col-md-5"><p:outputLabel id="bac" value="#{individuController.current.bacaleaureat}"
+                                                               /></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Mension  :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="mension" value="#{individuController.current.mension}"
+                                                               /></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Province du baccaleaureat  :*"/></div>
+                            <div class="col-md-3">
+                                <p:outputLabel id="province" value="#{individuController.current.province}"
+                                                               /></div>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Chaoix de la filiere d'inscription</h3>
+                        </div>
+                        <div class="row spacing-bottom spacing-top spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Filiere  :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="filiere" value="#{individuController.current.codeEtape}"
+                                                               /></div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="panel panel-warning spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information du Pere</h3>
+                        </div>
+                        <div class="row spacing-top  spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Nom du pere ou du tuteur  :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="nomPere" value="#{individuController.current.nomPere}"
+                                                               /></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Prenom du pere ou du tuteur  :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="prenomPere" value="#{individuController.current.prenomPere}"
+                                                               /></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Profession du pere ou du tuteur   :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="fonctionPere" value="#{individuController.current.villeNaissance}"
+                                                               /></div>
+                        </div>
 
-                                <p:menuButton value="Actions">  
-                                    <p:menuitem value="Editer" icon="ui-icon-arrowrefresh-1-w" update="messages" action="#{etudiantController.showEditQualification(diplome)}" />    
-                                    <p:menuitem value="Supprimer" icon="ui-icon-close" action="#{etudiantController.doRemoveQualification(diplome)}" ajax="false"/>  
-                                    
-                                </p:menuButton>  
-                            
+                    </div>
+                    
+                     <div class="panel panel-warning spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information de la Mere</h3>
+                        </div>
+                        <div class="row spacing-top  spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Nom de la mere  :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="nomMere" value="#{individuController.current.nomMere}"
+                                                               /></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Prenom de la mere  :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="prenomMere" value="#{individuController.current.prenomMere}"
+                                                              /></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Profession de la mere   :*"/></div>
+                            <div class="col-md-3"><p:outputLabel id="fonctionMere" value="#{individuController.current.professionMere}"
+                                                               /></div>
+                        </div>
 
-                        </p:column>
-                            </p:dataTable>
-                        </h:panelGrid>  
-                    </p:tab>  
-                    <p:tab id="tab2" title="Formation Doctorale Choisie">
-                        <p:outputLabel value="Vous avez choisis la branche : "/>
-                        <h4><p:outputLabel value="#{etudiantController.current.branche.intitule}" /></h4>
-                    </p:tab>
-                    <p:tab id="tab3" title="Sujets Choisis" disabled="true">  
-                          
-                            <p:dataTable value="#{etudiantController.current.choixList}" var="sujet">
-                                <p:column  headerText="Branche">  
-                                    <h:outputText value="#{sujet.idSujet.branche.intitule}" />  
-                                </p:column> 
-                                <p:column  headerText="Titre Sujet">  
-                                    <h:outputText value="#{sujet.idSujet.intitule}" />  
-                                </p:column> 
+                    </div>
+                    
+                </p:panel>
+                
+                    
+              
+            </h:form>
+        </ui:insert>        
 
-                                <p:column  headerText="Encadrant">  
-                                    <h:outputText value="#{sujet.idSujet.encadrant}" />  
-                                </p:column>
-                                
-                                <p:column  headerText="Etablissement">  
-                                    <h:outputText value="#{sujet.idSujet.etablissement}" />  
-                                </p:column>
-                                
-                                <p:column  headerText="Laboratoire / Equipe">  
-                                    <h:outputText value="#{sujet.idSujet.labo}" />  
-                                </p:column>
-                                <p:column style="width:4%" headerText="Actions">  
-                            
-                                <p:growl id="messages"/>  
-
-                                <p:menuButton value="Actions">  
-                                    <p:menuitem value="Details" icon="ui-icon-arrowrefresh-1-w" update="messages" action="#{etudiantController.showEditQualification(diplome)}" />    
-                                    <p:menuitem value="Supprimer" icon="ui-icon-close" action="#{etudiantController.doRemoveChoix(sujet)}" ajax="false"/>  
-                                    
-                                </p:menuButton> 
-                                </p:column>
-                            </p:dataTable>
-                       
-                    </p:tab>  
-
-
-
-                </p:tabView>
-</h:form>
-            </ui:define>
-        </ui:composition>
-    </h:body>
-</html>
+    </ui:define>
+</ui:composition>

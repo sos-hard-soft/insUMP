@@ -91,10 +91,11 @@ public class Individu implements Serializable {
     @Size(max = 50)
     @Column(name = "ville_naissance_ar")
     private String villeNaissanceAr;
+    @Size(max = 1)
     @Column(name = "sex")
-    private Integer sex;
+    private String sex;
     @Column(name = "cne")
-    private BigInteger cne;
+    private long cne;
     @Size(max = 500)
     @Column(name = "adresse")
     private String adresse;
@@ -114,7 +115,7 @@ public class Individu implements Serializable {
     private String mension;
     @Size(max = 45)
     @Column(name = "nationalite")
-    private String nationalite;
+    private int nationalite;
     @Size(max = 45)
     @Column(name = "num_telephonne")
     private String numTelephonne;
@@ -226,19 +227,19 @@ public class Individu implements Serializable {
         this.villeNaissanceAr = villeNaissanceAr;
     }
 
-    public Integer getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public BigInteger getCne() {
+    public long getCne() {
         return cne;
     }
 
-    public void setCne(BigInteger cne) {
+    public void setCne(long cne) {
         this.cne = cne;
     }
 
@@ -290,11 +291,11 @@ public class Individu implements Serializable {
         this.mension = mension;
     }
 
-    public String getNationalite() {
+    public int getNationalite() {
         return nationalite;
     }
 
-    public void setNationalite(String nationalite) {
+    public void setNationalite(int nationalite) {
         this.nationalite = nationalite;
     }
 

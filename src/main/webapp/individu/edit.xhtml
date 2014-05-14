@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-md-3">
                             <p:outputLabel id="cne" value="#{individuController.current.cne}"
-                             />
+                                           />
                         </div>
                         <div class="col-md-3">
                             <p:outputLabel value="CIN : "/>
@@ -35,97 +35,233 @@
                             <p:outputLabel id="cin" value="#{individuController.current.cin}" />
                         </div>
                     </div>
-                
+
                     <div class="panel panel-primary spacing-bottom">
                         <div class="panel-heading">
                             <h3 class="panel-title">Information Personnelle En Francais</h3>
                         </div>
-                            <div class="row spacing-top  spacing-bottom">
-                        <div class="col-md-2"><p:outputLabel  value="Nom   :*"/></div>
-                        <div class="col-md-3"><p:inputText id="nom" value="#{individuController.current.nom}"
-                             required="true" requiredMessage="Veuillez saisir votre nom"/></div>
-                        <div class="col-md-3"><p:message for="nom"/></div>
-                </div>
-                            <div class="row spacing-bottom">
-                        <div class="col-md-2"><p:outputLabel  value="Prenom   :*"/></div>
-                        <div class="col-md-3"><p:inputText id="prenom" value="#{individuController.current.prenom}"
-                             required="true" requiredMessage="Veuillez saisir votre prenom"/></div>
-                        <div class="col-md-3"><p:message for="prenom"/></div>
-                 </div>
-                            <div class="row spacing-bottom">
-                        <div class="col-md-2"><p:outputLabel  value="Ville natale   :*"/></div>
-                        <div class="col-md-3"><p:inputText id="villeNaissance" value="#{individuController.current.villeNaissance}"
-                             required="true" requiredMessage="Veuillez saisir le nom de votre ville natale"/></div>
-                        <div class="col-md-3"><p:message for="villeNaissance"/></div>
+                        <div class="row spacing-top  spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Nom   :*"/></div>
+                            <div class="col-md-3"><p:inputText id="nom" value="#{individuController.current.nom}"
+                                                               required="true" requiredMessage="Veuillez saisir votre nom"/></div>
+                            <div class="col-md-3"><p:message for="nom"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Prenom   :*"/></div>
+                            <div class="col-md-3"><p:inputText id="prenom" value="#{individuController.current.prenom}"
+                                                               required="true" requiredMessage="Veuillez saisir votre prenom"/></div>
+                            <div class="col-md-3"><p:message for="prenom"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Ville natale   :*"/></div>
+                            <div class="col-md-3"><p:inputText id="villeNaissance" value="#{individuController.current.villeNaissance}"
+                                                               required="true" requiredMessage="Veuillez saisir le nom de votre ville natale"/></div>
+                            <div class="col-md-3"><p:message for="villeNaissance"/></div>
+                        </div>
+
                     </div>
-                 
-                   </div>
-                        
+
                     <div class="panel panel-success spacing-bottom">
                         <div class="panel-heading">
                             <h3 class="panel-title rtl">المعلومات باللغة العربية</h3>
                         </div>
-                        
-                     <div align="right" class="row spacing-bottom rtl">
-                         <div class="col-md-3-rtl"><p:outputLabel value="الاسم العائلي :*"/></div>
-                        <div class="col-md-3-rtl"><p:inputText id="nomAr" value="#{individuController.current.nomAr}"
-                             required="true" requiredMessage="رجاءا املئو الخانة باسمكم العائلى"/></div>
-                        <div class="col-md-3-rtl"><p:message for="nomAr"/></div>
-                 </div>
-             <div align="right" class="row spacing-bottom rtl">
-                        <div class="col-md-3-rtl"><p:outputLabel value="الاسم الشخصي  :*"/></div>
-                        <div class="col-md-3-rtl"><p:inputText id="prenomAr" value="#{individuController.current.nomAr}"
-                             required="true" requiredMessage="رجاءا املئو الخانة باسمكم الشخصي"/></div>
-                        <div class="col-md-3-rtl"><p:message for="prenomAr"/></div>
+
+                        <div align="right" class="row spacing-top spacing-bottom rtl spacing-right">
+                            <div class="col-md-3-rtl"><p:outputLabel value="الاسم العائلي :*"/></div>
+                            <div class="col-md-3-rtl"><p:inputText id="nomAr" value="#{individuController.current.nomAr}"
+                                                                   required="true" requiredMessage="رجاءا املئو الخانة باسمكم العائلى"/></div>
+                            <div class="col-md-3-rtl"><p:message for="nomAr"/></div>
                         </div>
-                        <div class="row spacing-bottom rtl">
-                        <div class="col-md-3-rtl"><p:outputLabel  value="مدينة الازدياد :*"/></div>
-                        <div class="col-md-3-rtl"><p:inputText id="villeNaissanceAr" value="#{individuController.current.villeNaissanceAr}"
-                             required="true" requiredMessage="رجاءا املئو الخانة باسم مدينة الازدياد"/></div>
-                        <div class="col-md-3-rtl"><p:message for="villeNaissanceAr"/></div>
+                        <div align="right" class="row spacing-bottom rtl spacing-right">
+                            <div class="col-md-3-rtl"><p:outputLabel value="الاسم الشخصي  :*"/></div>
+                            <div class="col-md-3-rtl"><p:inputText id="prenomAr" value="#{individuController.current.nomAr}"
+                                                                   required="true" requiredMessage="رجاءا املئو الخانة باسمكم الشخصي"/></div>
+                            <div class="col-md-3-rtl"><p:message for="prenomAr"/></div>
+                        </div>
+                        <div class="row spacing-bottom rtl spacing-right">
+                            <div class="col-md-3-rtl"><p:outputLabel  value="مدينة الازدياد :*"/></div>
+                            <div class="col-md-3-rtl"><p:inputText id="villeNaissanceAr" value="#{individuController.current.villeNaissanceAr}"
+                                                                   required="true" requiredMessage="رجاءا املئو الخانة باسم مدينة الازدياد"/></div>
+                            <div class="col-md-3-rtl"><p:message for="villeNaissanceAr"/></div>
                         </div>
                     </div>
-             
-                    
-                    <div class="row spacing-bottom">
+
+                    <div class="panel panel-primary spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Informations complementaire en francais</h3>
+                        </div>
+                    <div class="row spacing-top spacing-bottom spacing-left">
                         <div class="col-md-3"><p:outputLabel value="Date de naissance : *"/></div>
                         <div class="col-md-3"><p:calendar id="dateNaissance" value="#{individuController.current.dateNaissance}"
-                                showOn="button" pattern="dd/MM/yyyy"
-                                yearRange="c-100" locale="fr"
-                                showButtonPanel="true" navigator="true"
-                                required="true" requiredMessage="Veuillez selectionnez une Date de naissance" />
-                </div>
+                                                          showOn="button" pattern="dd/MM/yyyy"
+                                                          yearRange="c-100" locale="fr"
+                                                          showButtonPanel="true" navigator="true"
+                                                          required="true" requiredMessage="Veuillez selectionnez une Date de naissance" />
+                        </div>
                         <div class="col-md-3"><p:message for="dateNaissance"/></div>
-                    </div>
-                            <div class="row spacing-bottom">
+                    </div> 
+                    <div class="row spacing-bottom spacing-left">
                         <div class="col-md-3"><p:outputLabel value="sexe :"/></div>
                         <div class="col-md-3"><p:selectOneRadio id="sexe" value="#{individuController.current.sex}">
-                    <f:selectItem itemLabel="Masculin" itemValue="1"/>
-                    <f:selectItem itemLabel="Féminin" itemValue="0"/>
-                </p:selectOneRadio>
-                </div>
+                                <f:selectItem itemLabel="Masculin" itemValue="1"/>
+                                <f:selectItem itemLabel="Féminin" itemValue="0"/>
+                            </p:selectOneRadio>
+                        </div>
                         <div class="col-md-3"><p:message for="sexe"/></div>
                     </div>
-                            <div class="row spacing-bottom">
-                        <div class="col-md-2"><p:outputLabel value="Adresse :"/></div>
-                        <div class="col-md-5"><p:inputTextarea rows="6" cols="50" id="adresse" value="#{individuController.current.adresse}"
-                             />
-                </div>
-                        <div class="col-md-2"><p:message for="adresse"/></div>
+                        
+                        <div class="row spacing-bottom spacing-left">
+                        <div class="col-md-3"><p:outputLabel value="Nationalite :"/></div>
+                        <div class="col-md-3">
+                        <p:selectOneMenu id="nationalite" value="#{individuController.current.nationalite}"
+                                     required="true" requiredMessage="Veuillez saisir la mention du diplome">  
+                            <f:selectItems value="#{paysController.all}"/>
+                        </p:selectOneMenu>
+                        </div>
+                        <div class="col-md-3">
+                    <p:message for="nationalite"/>
+                        </div>
                     </div>
-                            <div class="row spacing-bottom">
-                        <div class="col-md-2"><p:outputLabel  value="Ville  :*"/></div>
-                        <div class="col-md-3"><p:inputText id="ville" value="#{individuController.current.ville}"
-                             required="true" requiredMessage="Veuillez saisir le nom de votre ville de corespondance"/></div>
-                        <div class="col-md-3"><p:message for="ville"/></div>
                     </div>
-                            <div class="row spacing-bottom">
-                        <div class="col-md-2"><p:outputLabel  value="Pays  :*"/></div>
-                        <div class="col-md-3"><p:inputText id="pays" value="#{individuController.current.pays}"
-                             required="true" requiredMessage="Veuillez saisir le nom de votre pays de corespondance"/></div>
-                        <div class="col-md-3"><p:message for="pays"/></div>
+
+                    <div class="panel panel-primary spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information de contact de l'etudiant</h3>
+                        </div>
+                        <div class="row spacing-top spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel value="Adresse :"/></div>
+                            <div class="col-md-5"><p:inputTextarea rows="6" cols="50" id="adresse" value="#{individuController.current.adresse}"
+                                                                   />
+                            </div>
+                            <div class="col-md-2"><p:message for="adresse"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Ville  :*"/></div>
+                            <div class="col-md-3"><p:inputText id="ville" value="#{individuController.current.ville}"
+                                                               required="true" requiredMessage="Veuillez saisir le nom de votre ville de corespondance"/></div>
+                            <div class="col-md-3"><p:message for="ville"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Pays  :*"/></div>
+                            <div class="col-md-3">
+                                <p:selectOneMenu id="pays" value="#{individuController.current.nationalite}"
+                                     required="true" requiredMessage="Veuillez selectionner le nom de votre pays de corespondance">  
+                            <f:selectItems value="#{paysController.all}"/>
+                        </p:selectOneMenu>
+                            </div>
+                            <div class="col-md-3"><p:message for="pays"/></div>
+                        </div>
                     </div>
+                    
+                    <div class="panel panel-danger spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information du Bacaleaureat</h3>
+                        </div>
+                        <div class="row spacing-top spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel value="Baccaleaureat :"/></div>
+                            <div class="col-md-5"><p:selectOneMenu id="bac" value="#{individuController.current.bacaleaureat}"
+                                                               required="true" requiredMessage="Veuillez sselectionner l'intitule de votre bacaleaureat">
+                            <f:selectItem itemLabel="Diplome" itemValue="" />
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="col-md-2"><p:message for="bac"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Mension  :*"/></div>
+                            <div class="col-md-3"><p:selectOneMenu id="mension" value="#{individuController.current.mension}"
+                                                               required="true" requiredMessage="Veuillez sselectionner la mension de votre bacaleaureat">
+                            <f:selectItem itemLabel="Passable" itemValue="passable" />
+                            <f:selectItem itemLabel="Assez bien" itemValue="assez-bien" />
+                            <f:selectItem itemLabel="Bien" itemValue="bien" />
+                            <f:selectItem itemLabel="Tres bien" itemValue="tres-bien" />
+                                </p:selectOneMenu></div>
+                            <div class="col-md-3"><p:message for="mension"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Province du baccaleaureat  :*"/></div>
+                            <div class="col-md-3">
+                                <p:inputText id="province" value="#{individuController.current.province}"
+                                                               required="true" requiredMessage="Veuillez saisir le nom de la province de preparation du baccaleaureat"/>
+                            </div>
+                            <div class="col-md-3"><p:message for="province"/></div>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Chaoix de la filiere d'inscription</h3>
+                        </div>
+                        <div class="row spacing-bottom spacing-top spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Filiere  :*"/></div>
+                            <div class="col-md-3"><p:selectOneMenu id="filiere" value="#{individuController.current.codeEtape}"
+                                                               required="true" requiredMessage="Veuillez sselectionner la filiere a laquel vous voullez vous inscrire">
+                            <f:selectItem itemLabel="Science Mathematique et Informatique" itemValue="NDSMIA" />
+                            <f:selectItem itemLabel="Science de la Matiere" itemValue="NDSM" />
+                            <f:selectItem itemLabel="Science de la Vie et de la Terre" itemValue="NDSVT" />
+                                </p:selectOneMenu></div>
+                            <div class="col-md-3"><p:message for="filiere"/></div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="panel panel-warning spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information du Pere</h3>
+                        </div>
+                        <div class="row spacing-top  spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Nom du pere ou du tuteur  :*"/></div>
+                            <div class="col-md-3"><p:inputText id="nomPere" value="#{individuController.current.nomPere}"
+                                                               required="true" requiredMessage="Veuillez saisir le nom de votre pere"/></div>
+                            <div class="col-md-3"><p:message for="nomPere"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Prenom du pere ou du tuteur  :*"/></div>
+                            <div class="col-md-3"><p:inputText id="prenomPere" value="#{individuController.current.prenomPere}"
+                                                               required="true" requiredMessage="Veuillez saisir le prenom de votre pere"/></div>
+                            <div class="col-md-3"><p:message for="prenomPere"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Profession du pere ou du tuteur   :*"/></div>
+                            <div class="col-md-3"><p:inputText id="fonctionPere" value="#{individuController.current.professionPere}"
+                                                               required="true" requiredMessage="Veuillez saisir la profession de votre pere"/></div>
+                            <div class="col-md-3"><p:message for="fonctionPere"/></div>
+                        </div>
+
+                    </div>
+                    
+                     <div class="panel panel-warning spacing-bottom">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Information de la Mere</h3>
+                        </div>
+                        <div class="row spacing-top  spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Nom de la mere  :*"/></div>
+                            <div class="col-md-3"><p:inputText id="nomMere" value="#{individuController.current.nomMere}"
+                                                               required="true" requiredMessage="Veuillez saisir le nom de votre mere"/></div>
+                            <div class="col-md-3"><p:message for="nomMere"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Prenom de la mere  :*"/></div>
+                            <div class="col-md-3"><p:inputText id="prenomMere" value="#{individuController.current.prenomMere}"
+                                                               required="true" requiredMessage="Veuillez saisir le prenom de votre mere"/></div>
+                            <div class="col-md-3"><p:message for="prenomMere"/></div>
+                        </div>
+                        <div class="row spacing-bottom spacing-left">
+                            <div class="col-md-2"><p:outputLabel  value="Profession de la mere   :*"/></div>
+                            <div class="col-md-3"><p:inputText id="fonctionMere" value="#{individuController.current.professionMere}"
+                                                               required="true" requiredMessage="Veuillez saisir la profession de votre mere"/></div>
+                            <div class="col-md-3"><p:message for="fonctionMere"/></div>
+                        </div>
+
+                    </div>
+                    
                 </p:panel>
+                
+                    <div class="col-md-4">
+                <h:commandButton styleClass="btn btn-lg btn-success" value="Enregistrer les Modifications" id="valider" action="#{individuController.doEdit}" />
+                </div>
+                    <div class="col-md-4">
+                <h:commandButton styleClass="btn btn-lg btn-warning" value="Annuler les Modifications" id="annuler" action="#{individuController.showDetails}" />
+                </div>
+              
             </h:form>
         </ui:insert>        
 

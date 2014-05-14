@@ -32,7 +32,7 @@ public class UniqueCneValidator implements Validator{
             return; // Let required="true" handle, if any.
         }
 
-        BigInteger cne = (BigInteger) value;
+        long cne = (long) value;
 
         if (individuService.findByCne(cne) != null) {
             throw new ValidatorException(new FacesMessage(

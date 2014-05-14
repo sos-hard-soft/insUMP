@@ -49,16 +49,15 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
-        <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-    
     <security-constraint>
         <display-name>Secured Pages</display-name>
         <web-resource-collection>
             <web-resource-name>Secured page</web-resource-name>
             <description/>
-            <url-pattern>/secured/logedEtudiant.xhtml</url-pattern>
-            <url-pattern>/etudiant/view.xhtml</url-pattern>
+            <url-pattern>/secured/logedIndividu.xhtml</url-pattern>
+            <url-pattern>/individu/view.xhtml</url-pattern>
+            <url-pattern>/individu/edit.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>

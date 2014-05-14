@@ -95,7 +95,7 @@ public class IndividuController implements Serializable {
 
     
     public String showLoggedDetails() {
-        BigInteger cne = compte.getCne();
+        long cne = compte.getCne();
         System.out.println("le cne est : " + cne);
         current = individuService.findByCne(cne);
         System.out.println("La personne est : " + current.getNom() + "--> " + current.getCin());
@@ -120,7 +120,7 @@ public class IndividuController implements Serializable {
         }
     }
 
-    public void SendEmail(String email, String key, BigInteger cne, String password) {
+    public void SendEmail(String email, String key, long cne, String password) {
         String response = "response?faces-redirect=true";
 
         try {
@@ -168,12 +168,12 @@ public class IndividuController implements Serializable {
         //Creation de l'individu
         System.out.println("creation de l individu");
         
-        individuService.create(newIndividu);        
+        individuService.create(newIndividu);
         
         System.out.println("Individu creer !!!!");
          //Generation de la cle d'identification et envoie de mail d'activation
         final String key = UUID.randomUUID().toString();
-        System.out.println("La cle generer est " + key); 
+        System.out.println("La cle generer est " + key);
         //Definition de l'activation
         activation.setActivationKey(key);
         activation.setCompte(newCompte);

@@ -30,7 +30,7 @@ public class IndividuFacade extends AbstractFacade<Individu> {
     public IndividuFacade() {
         super(Individu.class);
     }
-    public Individu findByCne(BigInteger cne) {
+    public Individu findByCne(long cne) {
         Individu individu;
         try {
             individu = em.createNamedQuery("Individu.findByCne", Individu.class).setParameter("cne", cne).getSingleResult();
